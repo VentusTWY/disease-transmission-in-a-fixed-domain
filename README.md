@@ -1,6 +1,20 @@
 # Disease transmission in a fixed domain using MATLAB
 MATLAB project to simulate transmission of disease in a fixed domain
 
+## Demo
+
+![Simulation demo](media/demo.gif)
+
+10 simulated days with 100 individuals (full video: [media/demo.mp4](media/demo.mp4)).
+
+The video was rendered with GNU Octave using `media/RecordVideo.m`, which runs a vectorised, headless copy of the simulation loop (`media/simulate_core.m`, same rules as `Main_DiseaseSim.m`) and saves the three-panel dashboard as frames. To regenerate it (MATLAB or Octave, from the `media` folder):
+
+```
+RecordVideo                                   % writes frames/f0001.png ...
+ffmpeg -framerate 30 -i frames/f%04d.png -pix_fmt yuv420p demo.mp4
+```
+
+
 A project inspired by COVID-19 Archive for Year 1 Computing Coursework, simulation of disease transmission in a population moving around in a fixed domain using MATLAB
 
 RUN MAIN_DiseaseSim.m on MATLAB to start. Takes in a parameter n, as the number of individuals inside the fixed domain of 1000 units. (Suggested number would be 50-100) All individuals will be created with 'healthy' health status except for 1 'sick' individual.
